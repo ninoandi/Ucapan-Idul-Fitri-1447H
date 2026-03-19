@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 Ucapan Idul Fitri · Islamic Greeting</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+  <!-- Islamic Pattern Background -->
+  <div class="islamic-bg">
+    <div class="pattern"></div>
+    <div class="moon"></div>
+    <div class="stars"></div>
+  </div>
+
+  <!-- Audio Player -->
+  <div class="audio-player">
+    <audio id="backsound" loop>
+      <source src="audio/backsound.mp3" type="audio/mpeg">
+    </audio>
+    <button id="playPauseBtn" class="play-btn">
+      <i class="fas fa-play"></i>
+      <span>Play Musik</span>
+    </button>
+    <div class="volume-control">
+      <i class="fas fa-volume-up"></i>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Header dengan Navigasi -->
+    <nav class="islamic-nav">
+  <div class="nav-links">
+    <a href="index.html" class="nav-home">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="halaman2.html" class="nav-doa">
+      <i class="fas fa-mosque"></i> Do'a
+    </a>
+    <a href="halaman3.html" class="nav-ucapan">
+      <i class="fas fa-heart"></i> Ucapan
+    </a>
+  </div>
+  <div class="nav-decoration">
+    <i class="fas fa-star decor-star"></i>
+    <i class="fas fa-star-and-crescent decor-crescent"></i>
+  </div>
+</nav>
+
+    <!-- Ucapan Card -->
+    <div class="islamic-card">
+      <h1 class="title">Ucapan Spesial</h1>
+      <h2 class="subtitle">Minal Aidzin Wal Faizin</h2>
+
+      <!-- Open Envelope Icon -->
+      <div class="envelope-container">
+        <i class="fas fa-envelope-open-text envelope-icon"></i>
+      </div>
+
+      <!-- Interactive Ucapan Cards -->
+      <div class="ucapan-grid">
+  <!-- Ucapan 1 - Masjid -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Semoga di hari yang suci ini, Allah menerima amal ibadah kita dan mengampuni segala dosa. Selamat Idul Fitri 1446 H!">
+    <div class="ucapan-avatar">
+      <i class="fas fa-mosque"></i>
+    </div>
+    <h3>Ucapan 1</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+
+  <!-- Ucapan 2 - Alquran -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Taubah nasuha, hati bersih kembali fitri. Mohon maaf lahir dan batin. Eid Mubarak!">
+    <div class="ucapan-avatar">
+      <i class="fas fa-quran"></i>
+    </div>
+    <h3>Ucapan 2</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+
+  <!-- Ucapan 3 - Bintang Bulan -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Semoga silaturahmi tetap terjaga, rezeki bertambah, dan iman semakin kuat. Taqabbalallahu minna wa minkum.">
+    <div class="ucapan-avatar">
+      <i class="fas fa-star-and-crescent"></i>
+    </div>
+    <h3>Ucapan 3</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+
+  <!-- Ucapan 4 - Masjid (yang kamu minta) -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Selamat Idul Fitri! Mohon maaf atas segala khilaf, baik yang disengaja maupun tidak. Semoga kita dipertemukan dengan Ramadan berikutnya.">
+    <div class="ucapan-avatar">
+      <i class="fas fa-mosque"></i>
+    </div>
+    <h3>Ucapan 4</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+
+  <!-- Ucapan 5 - Tangan Berdoa -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Alhamdulillah, kita kembali ke fitrah. Mari sambut hari kemenangan dengan hati yang bersih. Selamat Lebaran!">
+    <div class="ucapan-avatar">
+      <i class="fas fa-hands-praying"></i>
+    </div>
+    <h3>Ucapan 5</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+
+  <!-- Ucapan 6 - Bintang -->
+  <div class="ucapan-item" onclick="showUcapan(this)" data-ucapan="Taqabbalallahu minna wa minkum, shiyamana wa shiyamakum. Mohon maaf lahir dan batin. Semoga berkah selalu.">
+    <div class="ucapan-avatar">
+      <i class="fas fa-star"></i>
+    </div>
+    <h3>Ucapan 6</h3>
+    <p>Klik untuk lihat pesan</p>
+  </div>
+</div>
+
+      <!-- Display Selected Ucapan -->
+      <div class="selected-ucapan" id="selectedUcapan">
+        <p>Klik salah satu kartu ucapan di atas untuk melihat pesan lengkapnya</p>
+      </div>
+
+      <!-- Form Ucapan -->
+<div class="custom-message">
+  <h3><i class="fas fa-paper-plane"></i> Kirim Ucapan untuk Saya</h3>
+  
+  <form action="https://formspree.io/f/mnjgwqzy" method="POST" class="ucapan-form">
+    <input type="text" name="nama" placeholder="Nama Anda" required class="form-input">
+    <textarea name="pesan" placeholder="Tulis ucapan Idul Fitri..." required class="form-input"></textarea>
+    
+    <!-- Optional: kirim notifikasi ke email -->
+    <input type="email" name="_replyto" placeholder="Email Anda (opsional)" class="form-input">
+    
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-send"></i> Kirim Ucapan
+    </button>
+  </form>
+  
+  <div class="info-text">
+    <i class="fas fa-info-circle"></i> Ucapan akan masuk ke email saya. Terima kasih atas feedbacknya!
+  </div>
+</div>
+
+      <!-- Navigation Buttons -->
+      <div class="action-buttons">
+        <a href="halaman2.html" class="btn btn-outline">
+          <i class="fas fa-arrow-left"></i> Do'a
+        </a>
+        <a href="index.html" class="btn btn-primary">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="islamic-footer">
+        <p class="hadith">"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya" (HR. Ahmad)</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <!-- Letakkan sebelum </body> -->
+
+<!-- Simpan posisi audio sebelum pindah halaman -->
+<script>
+  window.addEventListener('beforeunload', function() {
+    const audio = document.getElementById('backsound');
+    if (audio) {
+      // Simpan posisi lagu
+      localStorage.setItem('audioTime', audio.currentTime);
+      // Simpan status play/pause
+      localStorage.setItem('audioPlaying', !audio.paused);
+      // Simpan volume
+      localStorage.setItem('audioVolume', audio.volume);
+    }
+  });
+</script>
+</body>
+</html>

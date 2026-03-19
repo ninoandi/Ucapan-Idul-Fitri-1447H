@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌙 Eid Mubarak · Islamic Greeting</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+  <!-- Islamic Pattern Background -->
+  <div class="islamic-bg">
+    <div class="pattern"></div>
+    <div class="moon"></div>
+    <div class="stars"></div>
+  </div>
+
+  <!-- Audio Player -->
+  <div class="audio-player">
+    <audio id="backsound" loop>
+      <source src="audio/backsound.mp3" type="audio/mpeg">
+    </audio>
+    <button id="playPauseBtn" class="play-btn">
+      <i class="fas fa-play"></i>
+      <span>Play Musik</span>
+    </button>
+    <div class="volume-control">
+      <i class="fas fa-volume-up"></i>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Header dengan Navigasi -->
+    <nav class="islamic-nav">
+  <div class="nav-links">
+    <a href="index.html" class="nav-home">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="halaman2.html" class="nav-doa">
+      <i class="fas fa-mosque"></i> Do'a
+    </a>
+    <a href="halaman3.html" class="nav-ucapan">
+      <i class="fas fa-heart"></i> Ucapan
+    </a>
+  </div>
+  <div class="nav-decoration">
+  <i class="fas fa-star decor-star"></i>
+  <i class="fas fa-star-and-crescent decor-crescent"></i>
+</div>
+</nav>
+
+    <!-- Main Card -->
+    <div class="islamic-card">
+      <!-- Header dengan Kaligrafi -->
+      <div class="arabic-text">تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</div>
+      <h1 class="title">Eid Mubarak</h1>
+      <h2 class="subtitle">1 Syawal 1447 H</h2>
+
+      <!-- Masjid Illustration -->
+      <div class="masjid-container">
+        <div class="masjid">
+          <div class="dome"></div>
+          <div class="minaret left"></div>
+          <div class="minaret right"></div>
+          <div class="base"></div>
+          <div class="door"></div>
+        </div>
+      </div>
+
+      <!-- Greeting Message -->
+      <div class="greeting-message">
+        <p class="indonesian">Selamat Hari Raya Idul Fitri</p>
+        <p class="english">Happy Eid al-Fitr</p>
+        <p class="desc">Minal aidin wal faizin, mohon maaf lahir dan batin</p>
+      </div>
+
+      <!-- Lantern Row -->
+      <div class="lantern-row">
+        <div class="lantern">🏮</div>
+        <div class="lantern">🏮</div>
+        <div class="lantern">🏮</div>
+      </div>
+
+      <!-- Button ke halaman lain -->
+      <div class="action-buttons">
+        <a href="halaman2.html" class="btn btn-primary">
+          <i class="fas fa-hands-praying"></i> Baca Do'a
+        </a>
+        <a href="halaman3.html" class="btn btn-secondary">
+          <i class="fas fa-heart"></i> Kirim Ucapan
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="islamic-footer">
+        <div class="date">📅 Jumat, 20 Maret 2026</div>
+        <div class="hashtags">
+          <span>#IdulFitri</span>
+          <span>#EidMubarak</span>
+          <span>#MinalAidin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+  <!-- Letakkan sebelum </body> -->
+
+<!-- Simpan posisi audio sebelum pindah halaman -->
+<script>
+  window.addEventListener('beforeunload', function() {
+    const audio = document.getElementById('backsound');
+    if (audio) {
+      // Simpan posisi lagu
+      localStorage.setItem('audioTime', audio.currentTime);
+      // Simpan status play/pause
+      localStorage.setItem('audioPlaying', !audio.paused);
+      // Simpan volume
+      localStorage.setItem('audioVolume', audio.volume);
+    }
+  });
+</script>
+</body>
+</html>

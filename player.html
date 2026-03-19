@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; overflow: hidden; background: transparent; }
+  </style>
+</head>
+<body>
+  <audio id="globalAudio" loop style="display: none;">
+    <source src="audio/backsound.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    const audio = document.getElementById('globalAudio');
+    
+    // Load saved state
+    audio.volume = localStorage.getItem('audioVolume') || 0.5;
+    
+    // Coba autoplay
+    audio.play().catch(() => {
+      console.log('Autoplay blocked, menunggu interaksi');
+    });
+    
+    // Listen for commands from parent
+    window.addEventListener('message', function(event) {
+      const data = event.data;
+      
+      switch(data.action) {
+        case 'play':
+          audio.play();
+          localStorage.setItem('audioPlaying', 'true');
+          break;
+        case 'pause':
+          audio.pause();
+          localStorage.setItem('audioPlaying', 'false');
+          break;
+        case 'volume':
+          audio.volume = data.value;
+          localStorage.setItem('audioVolume', data.value);
+          break;
+        case 'getStatus':
+          event.source.postMessage({
+            type: 'audioPlaying',
+            value: !audio.paused
+          }, '*');
+          break;
+      }
+    });
+    
+    // Update status saat audio play/pause sendiri
+    audio.addEventListener('play', () => {
+      localStorage.setItem('audioPlaying', 'true');
+    });
+    
+    audio.addEventListener('pause', () => {
+      localStorage.setItem('audioPlaying', 'false');
+    });
+    
+    audio.addEventListener('volumechange', () => {
+      localStorage.setItem('audioVolume', audio.volume);
+    });
+    
+    // Kirim status ke parent saat berubah
+    audio.addEventListener('play', () => {
+      window.parent.postMessage({
+        type: 'audioPlaying',
+        value: true
+      }, '*');
+    });
+    
+    audio.addEventListener('pause', () => {
+      window.parent.postMessage({
+        type: 'audioPlaying',
+        value: false
+      }, '*');
+    });
+  </script>
+</body>
+</html>

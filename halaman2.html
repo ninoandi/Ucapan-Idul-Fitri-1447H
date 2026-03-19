@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🕋 Do'a Idul Fitri · Islamic Greeting</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="doa-page">
+  <!-- Islamic Pattern Background -->
+  <div class="islamic-bg">
+    <div class="pattern"></div>
+    <div class="moon"></div>
+    <div class="stars"></div>
+  </div>
+
+  <!-- Audio Player -->
+  <div class="audio-player">
+    <audio id="backsound" loop>
+      <source src="audio/backsound.mp3" type="audio/mpeg">
+    </audio>
+    <button id="playPauseBtn" class="play-btn">
+      <i class="fas fa-play"></i>
+      <span>Play Musik</span>
+    </button>
+    <div class="volume-control">
+      <i class="fas fa-volume-up"></i>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Header dengan Navigasi -->
+    <nav class="islamic-nav">
+  <div class="nav-links">
+    <a href="index.html" class="nav-home">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="halaman2.html" class="nav-doa">
+      <i class="fas fa-mosque"></i> Do'a
+    </a>
+    <a href="halaman3.html" class="nav-ucapan">
+      <i class="fas fa-heart"></i> Ucapan
+    </a>
+  </div>
+  <div class="nav-decoration">
+    <i class="fas fa-star decor-star"></i>
+    <i class="fas fa-star-and-crescent decor-crescent"></i>
+  </div>
+</nav>
+
+    <!-- Doa Card -->
+    <div class="islamic-card">
+      <h1 class="title">Do'a & Dzikir</h1>
+      <h2 class="subtitle">Idul Fitri 1447 H</h2>
+
+      <!-- Prayer Beads -->
+      <div class="tasbih-container">
+        <i class="fas fa-circle tasbih"></i>
+        <i class="fas fa-circle tasbih"></i>
+        <i class="fas fa-circle tasbih"></i>
+        <i class="fas fa-circle tasbih"></i>
+        <i class="fas fa-circle tasbih"></i>
+        <i class="fas fa-circle tasbih"></i>
+      </div>
+
+      <!-- Doa 1 -->
+      <div class="doa-card">
+        <div class="doa-icon">
+          <i class="fas fa-hands-praying"></i>
+        </div>
+        <div class="doa-content">
+          <p class="doa-arab">اَللَّهُ أَكْبَرُ، اَللَّهُ أَكْبَرُ، اَللَّهُ أَكْبَرُ، لَا إلَهَ إلَّا اللهُ وَاللهُ أَكْبَرُ، اَللَّهُ أَكْبَرُ وَلِلّٰهِ الْحَمْدُ</p>
+          <p class="doa-latin">Allahu Akbar, Allahu Akbar, Allahu Akbar, La ilaha illallahu wallahu Akbar, Allahu Akbar wa lillahil hamd</p>
+          <p class="doa-arti">"Allah Maha Besar, Allah Maha Besar, Allah Maha Besar, tiada Tuhan selain Allah, Allah Maha Besar, segala puji bagi-Nya"</p>
+        </div>
+      </div>
+
+      <!-- Doa 2 -->
+      <div class="doa-card">
+        <div class="doa-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div class="doa-content">
+          <p class="doa-arab">تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</p>
+          <p class="doa-latin">Taqabbalallahu minna wa minkum</p>
+          <p class="doa-arti">"Semoga Allah menerima (amalan) dari kami dan dari kalian"</p>
+        </div>
+      </div>
+
+      <!-- Doa 3 -->
+      <div class="doa-card">
+        <div class="doa-icon">
+          <i class="fas fa-star-and-crescent"></i>
+        </div>
+        <div class="doa-content">
+          <p class="doa-arab">جَعَلَهُ اللَّهُ مُبَارَكًا عَلَيْكَ وَعَلَى أُمَّةِ مُحَمَّدٍ</p>
+          <p class="doa-latin">Ja'alahullahu mubarakan 'alaika wa 'ala ummati Muhammad</p>
+          <p class="doa-arti">"Semoga Allah menjadikannya (hari raya) sebagai berkah bagimu dan bagi umat Muhammad"</p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="action-buttons">
+        <a href="index.html" class="btn btn-outline">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </a>
+        <a href="halaman3.html" class="btn btn-primary">
+          <i class="fas fa-heart"></i> Ucapan
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <!-- Letakkan sebelum </body> -->
+
+<!-- Simpan posisi audio sebelum pindah halaman -->
+<script>
+  window.addEventListener('beforeunload', function() {
+    const audio = document.getElementById('backsound');
+    if (audio) {
+      // Simpan posisi lagu
+      localStorage.setItem('audioTime', audio.currentTime);
+      // Simpan status play/pause
+      localStorage.setItem('audioPlaying', !audio.paused);
+      // Simpan volume
+      localStorage.setItem('audioVolume', audio.volume);
+    }
+  });
+</script>
+</body>
+</html>
